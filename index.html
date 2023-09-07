@@ -7,9 +7,12 @@
     <link rel="icon" type=image/x-icon href="/assets/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://waterboa.midu.dev/script.js" data-site="LPFWYLUB" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
     <link as="font" rel="preload" crossorigin="anonymous" href="/assets/fonts/CascadiaCodePL.woff2">
     <link as="font" rel="preload" crossorigin="anonymous"  href="/assets/fonts/CascadiaCodePLItalic.woff2">
     <link rel="stylesheet" href="./src/style.css">
+    <!-- og image -->
+    <meta property="og:image" content="/assets/typescript.svg" />
   </head>
   <body>
     <div class="overlay-drag hidden">
@@ -313,5 +316,24 @@
       }
     </script>
     <script async src="https://cdn.headwayapp.co/widget.js"></script>
+    <script>
+    // Function to update the OG image with dynamic text
+    function updateOGImage() {
+      const ogImageContainer = document.getElementById('editor-preview');
+  
+      // Capture the screenshot using HTML2Canvas
+      html2canvas(ogImageContainer).then(function (canvas) {
+        // Convert the canvas to a data URL
+        const ogImageUrl = canvas.toDataURL('image/png');
+  
+        // Update the OG image meta tag
+        const ogImageMeta = document.querySelector('meta[property="og:image"]');
+        ogImageMeta.setAttribute('content', ogImageUrl);
+      });
+    }
+  
+    updateOGImage();
+  </script>
+
   </body>
 </html>
