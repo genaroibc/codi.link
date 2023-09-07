@@ -322,25 +322,32 @@
       }
     </script>
     <script async src="https://cdn.headwayapp.co/widget.js"></script>
-    <!-- <script>
+    <script>
     // Function to update the OG image with dynamic text
     function updateOGImage() {
-      const ogImageContainer = document.getElementById('editor-preview');
+      // const ogImageContainer = document.getElementById('editor-preview');
   
       // Capture the screenshot using HTML2Canvas
-      html2canvas(ogImageContainer).then(function (canvas) {
+      // html2canvas(ogImageContainer).then(function (canvas) {
         // Convert the canvas to a data URL
-        const ogImageUrl = canvas.toDataURL('image/png');
+        const ogImageUrl = "https://github.com/midudev.png"
+        // canvas.toDataURL('image/png');
   
         // Update the OG image meta tag
-        const ogImageMeta = document.querySelector('meta[property="og:image"]');
-        console.log({ ogImageMeta, ogir });
-        ogImageMeta.setAttribute('content', ogImageUrl);
-      });
+        const ogImageMetaTags = [
+          document.querySelector('meta[property="og:image"]'),
+          document.querySelector('meta[name="twitter:image"]')
+        ]
+
+        console.log({ ogImageMetaTags, ogImageUrl });
+        ogImageMetaTags.forEach(ogImageMeta => {
+          ogImageMeta.setAttribute('content', ogImageUrl);
+        })
+      // });
     }
   
     updateOGImage();
-    </script> -->
+    </script>
 
   </body>
 </html>
