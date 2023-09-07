@@ -328,6 +328,7 @@
   
         // Update the OG image meta tag
         const ogImageMeta = document.querySelector('meta[property="og:image"]');
+        console.log({ ogImageMeta, ogImageUrl });
         ogImageMeta.setAttribute('content', ogImageUrl);
       });
     }
