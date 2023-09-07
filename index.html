@@ -330,7 +330,8 @@
       // Capture the screenshot using HTML2Canvas
       // html2canvas(ogImageContainer).then(function (canvas) {
         // Convert the canvas to a data URL
-        const ogImageUrl = "https://github.com/midudev.png"
+        const ogImageUrl = "https://github.com/midudev.png" + '?v=' + Date.now(); // this is a hack to avoid the image to be cached
+
         // canvas.toDataURL('image/png');
   
         // Update the OG image meta tag
